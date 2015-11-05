@@ -1,0 +1,40 @@
+{% do browser.include('bootstrap') %}
+{% do assetman.add('css/common.css') %}
+{% do assetman.add('js/common.js') %}
+<!DOCTYPE html>
+<html lang="{{ lang.get_current() }}">
+<head>
+    {{ metatag.dump_all() }}
+    {{ assetman.dump_css() }}
+</head>
+<body>
+
+{% include 'parts/header' %}
+
+<div id="page" class="container">
+    {% include 'parts/messages' %}
+    <div class="row">
+        <div id="content" class="{% if sidebar %}col-md-8{% else %}col-xs-12{% endif %}">
+            <div class="inner">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+        {% if sidebar %}
+            <aside id="sidebar" class="col col-md-4">
+                <div class="inner">
+                    {% block sidebar %}
+                        {% include 'parts/sidebar' %}
+                    {% endblock %}
+                </div>
+            </aside>
+        {% endif %}
+    </div>
+</div>
+
+{% include 'parts/footer' %}
+
+{{ assetman.dump_js() }}
+{{ assetman.dump_inline() }}
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+<div class="navbar navbar-bottom">
+    <div class="container">
+        <ul class="nav navbar-nav">
+            <li><a target="_blank" href="https://facebook.com"><i class="fa fa-facebook"></i></a></li>
+            <li><a target="_blank" href="https://twitter.com"><i class="fa fa-twitter"></i></a></li>
+
+            {% for page in content.find('page').get() %}
+                {{ nav_link(page.url, page.title) }}
+            {% endfor %}
+        </ul>
+                    {{ widget.select.LanguageNav() }}
+        <p class="navbar-text navbar-right">
+            <small>&copy; {{ '' | date('%Y') }} {{ t('app_name') }}</small>
+        </p>
+    </div>
+</div>

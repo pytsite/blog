@@ -1,0 +1,72 @@
+{% extends reg.get('output.base_tpl') %}
+{% block content %}
+    <div id="home">
+        {% if latest_articles|length >= 1 %}
+            {% set article = latest_articles[0] %}
+            <div class="row headline">
+                <div class="col-xs-12 art primary">
+                    <div class="inner">
+                        <a class="image" href="{{ article.url }}">
+                            {{ article.images[0].get_html(article.title) }}
+                        </a>
+
+                        <div class="title">
+                            <h3><a href="{{ article.url }}">{{ article.title | e }}</a></h3>
+
+                            <p class="hidden-xs description">{{ article.description | e }}</p>
+                        </div>
+
+                        <a class="section hvr-sweep-to-right"
+                           href="{{ url(article.section.alias) }}">{{ article.section.title | e }}</a>
+                    </div>
+                </div>
+                {% for n in range(1, 5) %}
+                    {% if latest_articles[n] %}
+                        {% set article = latest_articles[n] %}
+                        <div class="col-xs-B-12 col-xs-6 art secondary">
+                            <div class="inner">
+                                <a class="image" href="{{ article.url }}">
+                                    {{ article.images[0].get_html(article.title) }}
+                                </a>
+                                <a class="section hvr-sweep-to-right"
+                                   href="{{ url(article.section.alias) }}">{{ article.section.title | e }}</a>
+
+                                <p class="title"><a href="{{ article.url }}">{{ article.title | e }}</a></p>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <div class="row latest-by-section">
+            {% for section in sections %}
+                {% if loop.index0 < 3 %}
+                    {% if latest_by_section[section.alias] %}
+                        <div class="col-xs-B-12 col-xs-4">
+                            <h3>{{ section.title | e }}</h3>
+
+                            <div class="hr1"></div>
+
+                            {% for article in latest_by_section[section.alias] %}
+                                <div class="art">
+                                    {% if loop.index0 == 0 or loop.index0 == 2 %}
+                                        <a class="image" href="{{ article.url }}">
+                                            {{ article.images[0].get_html(article.title) }}
+                                        </a>
+                                        <h4 class="title"><a href="{{ article.url }}">{{ article.title | e }}</a></h4>
+                                    {% else %}
+                                        <div class="title">
+                                            <a href="{{ article.url }}">{{ article.title | e }}</a>
+                                        </div>
+                                    {% endif %}
+                                    <div class="hr2"></div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

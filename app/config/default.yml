@@ -1,0 +1,57 @@
+server:
+  name: blog.test.com
+
+db:
+  database: test_com
+  user: test
+  password: test
+
+lang:
+  languages:
+    - en
+    - ru
+    - uk
+
+app:
+  autoload:
+    - pytsite.auth_ui
+    - pytsite.auth_log
+    - pytsite.content
+    - pytsite.add_this
+    - pytsite.disqus
+    - pytsite.contact
+
+routes:
+  '/':
+    _name: app.ep.home
+
+  '/section/<string:term_alias>':
+    _name: app.article.index.section
+    _call: pytsite.content.ep.index
+    model: article
+    term_field: section
+
+  '/tag/<string:term_alias>':
+    _name: app.article.index.tag
+    _call: pytsite.content.ep.index
+    model: article
+    term_field: tags
+
+  '/contact':
+    _name: app.ep.contact_form
+
+content:
+  sitemap:
+    models:
+      - article
+      - page
+  feed:
+    models:
+      - article
+
+#add_this:
+#  pub_id:
+
+#disqus:
+#  short_name:
+#  api_secret:
