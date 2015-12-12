@@ -62,6 +62,7 @@ def _get_sidebar(exclude_ids: list) -> list:
         'popular': _get_articles(exclude_ids, 3, sort_field='views_count'),
         'latest': _get_articles(exclude_ids, 3),
         'tag_cloud': content.widget.TagCloud(
+            uid='sidebar-tag-cloud',
             title=lang.t('tags_cloud'),
             css='block',
             term_css='hvr-sweep-to-right',

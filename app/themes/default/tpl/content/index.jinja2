@@ -5,7 +5,7 @@
         <h1>{{ metatag.get('title') }}</h1>
 
         {% if author %}
-            {{ auth_ui.widget.Profile(author) }}
+            {{ auth_ui.widget.Profile('user-profile', user=author) }}
         {% endif %}
 
         {% if entities %}

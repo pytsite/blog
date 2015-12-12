@@ -54,7 +54,7 @@
             {% block tags %}
                 {% if entity.tags %}
                     <div class="tags col-sm-6">
-                        {{ content.widget.EntityTagCloud(entity).render() }}
+                        {{ content.widget.EntityTagCloud('entity-tag-cloud', entity=entity) }}
                     </div>
                 {% endif %}
             {% endblock %}
@@ -62,7 +62,7 @@
             {% block share %}
                 {% if reg.get('add_this.pub_id') %}
                     <div class="share col-sm-6">
-                        {{ add_this.widget.AddThis().render() }}
+                        {{ add_this.widget.AddThis('add-this-share') }}
                     </div>
                 {% endif %}
             {% endblock %}
@@ -98,7 +98,7 @@
         {% block comments %}
             {% if reg.get('disqus.short_name') %}
                 <div id="comments">
-                    {{ disqus.widget.Disqus().render() }}
+                    {{ disqus.widget.Disqus('disqus-comments') }}
                 </div>
             {% endif %}
         {% endblock %}
