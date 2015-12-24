@@ -1,6 +1,6 @@
 """Application Endpoints.
 """
-from pytsite import content, tpl, odm, lang, contact
+from pytsite import content, tpl, odm, lang, widget
 
 __author__ = 'Alexander Shepetko'
 __email__ = 'a@shepetko.com'
@@ -25,12 +25,14 @@ def home(args: dict, inp: dict) -> str:
         'latest_articles': latest,
         'latest_by_section': latest_by_section,
         'sidebar': _get_sidebar(exclude_ids),
+        'language_nav': widget.select.LanguageNav('language-nav'),
     })
 
 
 def article_index(args: dict, inp: dict) -> str:
     exclude_ids = [e.id for e in args.get('entities')]
     args['sidebar'] = _get_sidebar(exclude_ids)
+    args['language_nav'] = widget.select.LanguageNav('language-nav')
 
     return tpl.render('content/index', args)
 
@@ -43,18 +45,13 @@ def article_view(args: dict, inp: dict) -> str:
     return tpl.render('content/{}'.format(entity.model), {
         'entity': entity,
         'sidebar': _get_sidebar(exclude_ids),
-        'related': _get_articles(exclude_ids, 3, entity.section, 'views_count') if entity.model == 'article' else []
+        'related': _get_articles(exclude_ids, 3, entity.section, 'views_count') if entity.model == 'article' else [],
+        'language_nav': widget.select.LanguageNav('language-nav'),
     })
 
 
 def page_view(args: dict, inp: dict) -> str:
     return article_view(args, inp)
-
-
-def contact_form(args: dict, inp: dict) -> str:
-    return tpl.render('pages/contact', {
-        'form': contact.ContactForm()
-    })
 
 
 def _get_sidebar(exclude_ids: list) -> list:

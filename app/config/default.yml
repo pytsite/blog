@@ -19,7 +19,6 @@ app:
     - pytsite.content
     - pytsite.add_this
     - pytsite.disqus
-    - pytsite.contact
 
 routes:
   '/':
@@ -36,9 +35,6 @@ routes:
     _call: pytsite.content.ep.index
     model: article
     term_field: tags
-
-  '/contact':
-    _name: app.ep.contact_form
 
 content:
   sitemap:
