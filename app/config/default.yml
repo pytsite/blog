@@ -20,6 +20,10 @@ app:
     - pytsite.add_this
     - pytsite.disqus
 
+  links:
+    facebook: https://facebook.com
+    twitter: https://twitter.com
+
 routes:
   '/':
     _name: app.ep.home

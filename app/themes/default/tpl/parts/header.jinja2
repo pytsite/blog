@@ -13,12 +13,12 @@
 
         <div class="collapse navbar-collapse" id="navbar-top-collapse">
             <ul class="nav navbar-nav">
-                {% for section in content.get_sections() %}
+                {% for section in sections %}
                     {{ nav_link(router.ep_url('app.article.index.section', {'term_alias': section.alias}), section.title) }}
                 {% endfor %}
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                {% set user = auth.get_current_user() %}
+                {% set user = get_current_user() %}
                 {% if user.is_anonymous %}
                     {{ nav_link(ep_url('pytsite.auth.ep.login', {'driver': 'ulogin'}), t('pytsite.auth@login')) }}
                 {% else %}
@@ -26,7 +26,7 @@
                         {{ nav_link(ep_url('pytsite.admin.ep.dashboard'), t('pytsite.admin@admin')) }}
                     {% endif %}
                     {{ nav_link(user.profile_view_url, t('profile')) }}
-                    {{ nav_link(ep_url('pytsite.auth.ep.logout'), t('pytsite.auth@logout')) }}
+                    {{ nav_link(get_logout_url(), t('pytsite.auth@logout')) }}
                 {% endif %}
             </ul>
         </div>

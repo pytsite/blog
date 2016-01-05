@@ -1,4 +1,4 @@
-{% extends reg.get('output.base_tpl') %}
+{% extends reg_get('output.base_tpl') %}
 {% block content %}
     <article class="content-entity" data-model="{{ entity.model }}" data-entity-id="{{ entity.id }}">
         <h1>{{ entity.title | e }}</h1>
@@ -40,11 +40,11 @@
         {% endif %}
 
 
-        {% set current_user = auth.get_current_user() %}
+        {% set current_user = get_current_user() %}
         {% if current_user.has_permission('pytsite.odm_ui.modify.' ~ entity.model) or (current_user.has_permission('pytsite.odm_ui.modify_own.' ~ entity.model) and current_user.id == entity.author.id) %}
             <div class="row actions">
                 <div class="col-xs-12 text-right">
-                    <a href="{{ ep_url('pytsite.odm_ui.ep.get_m_form', {'model': entity.model, 'id': entity.id|string, '__form_redirect': current_url()|urlencode}) }}"
+                    <a href="{{ ep_url('pytsite.odm_ui.ep.get_m_form', {'model': entity.model, 'id': entity.id|string, '__redirect': current_url()}) }}"
                        class="btn btn-default">{{ t('edit') }}</a>
                 </div>
             </div>
@@ -52,17 +52,15 @@
 
         <div class="row">
             {% block tags %}
-                {% if entity.tags %}
-                    <div class="tags col-sm-6">
-                        {{ content.widget.EntityTagCloud('entity-tag-cloud', entity=entity) }}
-                    </div>
-                {% endif %}
+                <div class="tags col-sm-6">
+                    {{ entity_tags }}
+                </div>
             {% endblock %}
 
             {% block share %}
-                {% if reg.get('add_this.pub_id') %}
+                {% if reg_get('add_this.pub_id') %}
                     <div class="share col-sm-6">
-                        {{ add_this.widget.AddThis('add-this-share') }}
+                        {{ share_widget }}
                     </div>
                 {% endif %}
             {% endblock %}
@@ -96,11 +94,9 @@
         {% endif %}
 
         {% block comments %}
-            {% if reg.get('disqus.short_name') %}
-                <div id="comments">
-                    {{ disqus.widget.Disqus('disqus-comments') }}
-                </div>
-            {% endif %}
+            <div id="comments">
+                {{ comments_widget }}
+            </div>
         {% endblock %}
     </article>
 {% endblock %}

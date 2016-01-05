@@ -1,8 +1,8 @@
-{% extends reg.get('output.base_tpl') %}
+{% extends reg_get('output.base_tpl') %}
 
 {% block content %}
     <h1>{{ title | e }}</h1>
-    {% if traceback and reg.get('debug.enabled') %}
+    {% if traceback and reg_get('debug.enabled') %}
         <pre>{{ traceback }}</pre>
     {% endif %}
 {% endblock %}

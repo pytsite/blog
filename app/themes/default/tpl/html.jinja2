@@ -1,11 +1,11 @@
-{% do browser.include('bootstrap') %}
-{% do assetman.add('css/common.css') %}
-{% do assetman.add('js/common.js') %}
+{% do browser_include('bootstrap') %}
+{% do assetman_add('css/common.css') %}
+{% do assetman_add('js/common.js') %}
 <!DOCTYPE html>
-<html lang="{{ lang.get_current() }}">
+<html lang="{{ current_lang() }}">
 <head>
-    {{ metatag.dump_all() }}
-    {{ assetman.dump_css() }}
+    {{ metatag_all() }}
+    {{ assetman_css() }}
 </head>
 <body>
 
@@ -33,8 +33,8 @@
 
 {% include 'parts/footer' %}
 
-{{ assetman.dump_js() }}
-{{ assetman.dump_inline() }}
+{{ assetman_js() }}
+{{ assetman_inline() }}
 
 </body>
 </html>

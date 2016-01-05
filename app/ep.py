@@ -1,6 +1,6 @@
 """Application Endpoints.
 """
-from pytsite import content, tpl, odm, lang, widget
+from pytsite import content, tpl, odm, lang, add_this, disqus, reg, auth_ui
 
 __author__ = 'Alexander Shepetko'
 __email__ = 'a@shepetko.com'
@@ -12,49 +12,62 @@ def home(args: dict, inp: dict) -> str:
     """
     exclude_ids = []
 
-    sections = content.get_sections()
-
     latest = _get_articles(exclude_ids)
 
+    sections = content.get_sections()
     latest_by_section = {}
     for sec in sections:
         latest_by_section[sec.alias] = _get_articles(exclude_ids)
 
-    return tpl.render('content/home', {
-        'sections': sections,
+    args.update({
         'latest_articles': latest,
         'latest_by_section': latest_by_section,
-        'sidebar': _get_sidebar(exclude_ids),
-        'language_nav': widget.select.LanguageNav('language-nav'),
     })
+
+    args.update(_get_tpl_globals(exclude_ids))
+
+    return tpl.render('content/home', args)
 
 
 def article_index(args: dict, inp: dict) -> str:
+    """Article index view.
+    """
     exclude_ids = [e.id for e in args.get('entities')]
-    args['sidebar'] = _get_sidebar(exclude_ids)
-    args['language_nav'] = widget.select.LanguageNav('language-nav')
+    args.update(_get_tpl_globals(exclude_ids))
+
+    if 'author' in args and args['author']:
+        args['author_widget'] = auth_ui.widget.Profile('user-profile', user=args['author'])
 
     return tpl.render('content/index', args)
 
 
 def article_view(args: dict, inp: dict) -> str:
-    entity = args.get('entity')
+    """Article view.
+    """
+    e = args['entity']
+    exclude_ids = [e.id]
 
-    exclude_ids = [entity.id]
+    args.update(_get_tpl_globals(exclude_ids))
 
-    return tpl.render('content/{}'.format(entity.model), {
-        'entity': entity,
-        'sidebar': _get_sidebar(exclude_ids),
-        'related': _get_articles(exclude_ids, 3, entity.section, 'views_count') if entity.model == 'article' else [],
-        'language_nav': widget.select.LanguageNav('language-nav'),
+    args.update({
+        'related': _get_articles(exclude_ids, 3, e.section, 'views_count') if e.model == 'article' else [],
+        'entity_tags': content.widget.EntityTagCloud('entity-tag-cloud', entity=args['entity']),
+        'share_widget': add_this.widget.AddThis('add-this-share') if reg.get('add_this.pub_id') else '',
+        'comments_widget': disqus.widget.Disqus('disqus-comments') if reg.get('disqus.short_name') else '',
     })
+
+    return tpl.render('content/{}'.format(e.model), args)
 
 
 def page_view(args: dict, inp: dict) -> str:
+    """Page view.
+    """
     return article_view(args, inp)
 
 
 def _get_sidebar(exclude_ids: list) -> list:
+    """Get sidebar content.
+    """
     r = {
         'popular': _get_articles(exclude_ids, 3, sort_field='views_count'),
         'latest': _get_articles(exclude_ids, 3),
@@ -70,6 +83,10 @@ def _get_sidebar(exclude_ids: list) -> list:
 
 
 def _get_articles(exclude_ids: list, count: int=5, section: content.model.Section=None, sort_field='publish_time'):
+    """Get articles.
+
+    :rtype: list
+    """
     f = content.find('article').where('_id', 'nin', exclude_ids).sort([(sort_field, odm.I_DESC)])
 
     if section:
@@ -81,3 +98,13 @@ def _get_articles(exclude_ids: list, count: int=5, section: content.model.Sectio
         exclude_ids.append(article.id)
 
     return r
+
+
+def _get_tpl_globals(exclude_ids: list=None):
+    """Get global arguments to inject into templates.
+    """
+    return {
+        'sections': content.get_sections(),
+        'sidebar': _get_sidebar(exclude_ids),
+        'search_widget': content.widget.Search('search-article', model='article', title=lang.t('search')),
+    }
