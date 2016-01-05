@@ -1,5 +1,9 @@
 # PytSite Blog Changelog
 
+## 0.4.1 (2016-01-05)
+Section URLs fix on the home page template.
+
+
 ## 0.4 (2016-01-05)
 Update to support latest PytSite-0.41.17 release.
 
