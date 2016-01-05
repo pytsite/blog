@@ -16,8 +16,7 @@
                             <p class="hidden-xs description">{{ article.description | e }}</p>
                         </div>
 
-                        <a class="section hvr-sweep-to-right"
-                           href="{{ url(article.section.alias) }}">{{ article.section.title | e }}</a>
+                        <a class="section hvr-sweep-to-right" href="{{ ep_url('app.article.index.section', {'term_alias': article.section.alias}) }}">{{ article.section.title | e }}</a>
                     </div>
                 </div>
                 {% for n in range(1, 5) %}
@@ -28,8 +27,7 @@
                                 <a class="image" href="{{ article.url }}">
                                     {{ article.images[0].get_html(article.title) }}
                                 </a>
-                                <a class="section hvr-sweep-to-right"
-                                   href="{{ url(article.section.alias) }}">{{ article.section.title | e }}</a>
+                                <a class="section hvr-sweep-to-right" href="{{ ep_url('app.article.index.section', {'term_alias': article.section.alias}) }}">{{ article.section.title | e }}</a>
 
                                 <p class="title"><a href="{{ article.url }}">{{ article.title | e }}</a></p>
                             </div>
