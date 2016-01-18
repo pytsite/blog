@@ -8,7 +8,7 @@
                     {% if not loop.index0 and art.images %}
                         <div class="image">
                             <a href="{{ art.url }}">
-                                {{ art.images[0].get_html(art.title) }}
+                                {{ art.images[0].get_responsive_html(art.title) }}
                             </a>
                         </div>
                     {% endif %}

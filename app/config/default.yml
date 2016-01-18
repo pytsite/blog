@@ -17,8 +17,8 @@ app:
     - pytsite.auth_ui
     - pytsite.auth_log
     - pytsite.content
-    - pytsite.add_this
-    - pytsite.disqus
+#    - pytsite.add_this
+#    - pytsite.disqus
 
   links:
     facebook: https://facebook.com

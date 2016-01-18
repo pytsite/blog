@@ -15,7 +15,7 @@
                         {% if entity.images %}
                             <div class="image col-xs-B-12 col-xs-4">
                                 <a href="{{ entity.url }}">
-                                    {{ entity.images[0].get_html(entity.title) }}
+                                    {{ entity.images[0].get_responsive_html(entity.title) }}
                                 </a>
                             </div>
                         {% endif %}

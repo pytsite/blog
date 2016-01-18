@@ -4,7 +4,7 @@
         <h1>{{ entity.title | e }}</h1>
         {% if entity.images %}
             <div class="image">
-                {{ entity.images[0].get_html(entity.title) }}
+                {{ entity.images[0].get_responsive_html(entity.title) }}
             </div>
         {% endif %}
         {% block meta %}
@@ -79,7 +79,7 @@
                             {% if rel.images %}
                                 <div class="image">
                                     <a href="{{ rel.url }}">
-                                        {{ rel.images[0].get_html(rel.title) }}
+                                        {{ rel.images[0].get_responsive_html(rel.title, aspect_ratio=1.5) }}
                                     </a>
                                 </div>
                             {% endif %}

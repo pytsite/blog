@@ -1,5 +1,5 @@
 function responsiveSizes() {
-    $('.iframe-responsive, .img-responsive').each(function () {
+    $('.iframe-responsive').each(function () {
         var em = $(this);
 
         if (em.hasClass('iframe-responsive')) {

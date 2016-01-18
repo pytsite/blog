@@ -9,3 +9,4 @@
 /app/storage/
 /app/log/
 /app/tmp/
+/test.py

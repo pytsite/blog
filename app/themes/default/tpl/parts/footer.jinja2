@@ -11,6 +11,11 @@
                 <li><a target="_blank" href="{{ tw_link }}"><i class="fa fa-twitter"></i></a></li>
             {% endif %}
 
+            {% set g_link = reg_get('app.links.google_plus') %}
+            {% if g_link %}
+                <li><a target="_blank" href="{{ g_link }}"><i class="fa fa-google-plus"></i></a></li>
+            {% endif %}
+
             {% for page in pages %}
                 {{ nav_link(page.url, page.title) }}
             {% endfor %}
