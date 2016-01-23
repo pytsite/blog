@@ -1,20 +1,19 @@
 <div class="navbar navbar-bottom">
     <div class="container">
         <ul class="nav navbar-nav">
-            {% set fb_link = reg_get('app.links.facebook') %}
-            {% if fb_link %}
-                <li><a target="_blank" href="{{ fb_link }}"><i class="fa fa-facebook"></i></a></li>
-            {% endif %}
-
-            {% set tw_link = reg_get('app.links.twitter') %}
-            {% if tw_link %}
-                <li><a target="_blank" href="{{ tw_link }}"><i class="fa fa-twitter"></i></a></li>
-            {% endif %}
-
-            {% set g_link = reg_get('app.links.google_plus') %}
-            {% if g_link %}
-                <li><a target="_blank" href="{{ g_link }}"><i class="fa fa-google-plus"></i></a></li>
-            {% endif %}
+            {% for link in reg_get('app.links') %}
+                {% set icon = 'fa fa-globe' %}
+                {% if 'facebook.com' in link %}
+                    {% set icon = 'fa fa-facebook' %}
+                {% elif 'twitter.com' in link %}
+                    {% set icon = 'fa fa-twitter' %}
+                {% elif 'google.com' in link %}
+                    {% set icon = 'fa fa-google-plus' %}
+                {% elif 'tumblr.com' in link %}
+                    {% set icon = 'fa fa-tumblr' %}
+                {% endif %}
+                <li><a target="_blank" href="{{ link }}"><i class="{{ icon }}"></i></a></li>
+            {% endfor %}
 
             {% for page in pages %}
                 {{ nav_link(page.url, page.title) }}
@@ -24,7 +23,13 @@
         {{ language_nav }}
 
         <p class="navbar-text navbar-right">
-            <small>&copy; {{ '' | date('%Y') }} {{ t('app_name') }}</small>
+            {% set launch_year = reg_get('app.launch_year') %}
+            {% set current_year = '' | date('%Y') %}
+            {% if launch_year and launch_year != current_year %}
+                <small>&copy; {{ launch_year }}-{{ current_year }} {{ t('app_name') }}</small>
+            {% else %}
+                <small>&copy; {{ current_year }} {{ t('app_name') }}</small>
+            {% endif %}
         </p>
     </div>
 </div>

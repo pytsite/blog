@@ -49,11 +49,17 @@ def article_view(args: dict, inp: dict) -> str:
 
     args.update(_get_tpl_globals(exclude_ids))
 
+    comments_widget = ''
+    if 'pytsite.disqus' in reg.get('app.autoload'):
+        comments_widget = comments.get_widget('disqus')
+    elif 'pytsite.fb' in reg.get('app.autoload'):
+        comments_widget = comments.get_widget('fb')
+
     args.update({
         'related': _get_articles(exclude_ids, 3, e.section, 'views_count') if e.model == 'article' else [],
         'entity_tags': content.widget.EntityTagCloud('entity-tag-cloud', entity=args['entity']),
         'share_widget': add_this.widget.AddThis('add-this-share') if reg.get('add_this.pub_id') else '',
-        'comments_widget': comments.get_widget('disqus') if 'pytsite.disqus' in reg.get('app.autoload') else '',
+        'comments_widget': comments_widget,
     })
 
     return tpl.render('content/{}'.format(e.model), args)

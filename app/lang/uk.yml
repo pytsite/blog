@@ -1,53 +1,22 @@
-app_name: PytSite Project
-app_name_short: PSP
-lang_title_ru: Русский
-lang_title_uk: Українська
-lang_title_en: English
+app_name: 'PytSite Project'
+app_name_short: 'PSP'
 
-http_error_403: Доступ заборонено
-http_error_404: Сторінку не знайдено
-http_error_500: Помилка сервера
+lang_title_ru: 'Русский'
+lang_title_uk: 'Українська'
+lang_title_en: 'English'
 
-articles: Статті
-pages: Сторінки
-popular: Популярні
-latest: Останні
-tags_cloud: Хмара тегів
-recommended_articles: Також рекомендуємо
-search: Пошук
-edit: Редагувати
-profile: Профіль
-no_content_found: Нажаль, ми не змогли знайти підходящих матеріалів. Спробуйте <a href="/">почати з головної</a>.
-powered_by: Працює на <a href="https://github.com/pytsite" target="_blank">PytSite</a>
-external_links: Посилання на джерела
-link: Посилання
+odm_ui_permission_group_description: 'Додаток'
 
-odm_ui_permission_group_description: Додаток
-
-odm_ui_browser_title_article: Статті
-odm_ui_form_title_create_article: Створення статті
-odm_ui_form_title_modify_article: Зміна статті
-odm_ui_form_title_delete_article: Видалення статей
-
-odm_ui_permission_create_article: Створення статей
-odm_ui_permission_browse_own_article: Огляд статей
-odm_ui_permission_browse_article: Огляд ВСІХ статей
-odm_ui_permission_modify_own_article: Зміна статей
-odm_ui_permission_modify_article: Зміна БУДЬ-ЯКИХ статей
-odm_ui_permission_delete_own_article: Видалення статей
-odm_ui_permission_delete_article: Видалення БУДЬ-ЯКИХ статей
-content_permission_bypass_moderation_article: Публікація СТАТЕЙ без модерації
-
-odm_ui_browser_title_page: Сторінки
-odm_ui_form_title_create_page: Нова сторінка
-odm_ui_form_title_modify_page: Зміна сторінки
-odm_ui_form_title_delete_page: Видалення сторінок
-
-odm_ui_permission_create_page: Створення сторінок
-odm_ui_permission_browse_own_page: Огляд сторінок
-odm_ui_permission_browse_page: Огляд ВСІХ сторінок
-odm_ui_permission_modify_own_page: Зміна сторінок
-odm_ui_permission_modify_page: Зміна БУДЬ-ЯКИХ сторінок
-odm_ui_permission_delete_own_page: Видалення сторінок
-odm_ui_permission_delete_page: Видалення БУДЬ-ЯКИХ сторінок
-content_permission_bypass_moderation_page: Публікація СТОРІНОК без модерації
+articles: 'Статті'
+pages: 'Сторінки'
+popular: 'Популярні'
+latest: 'Останні'
+tags_cloud: 'Хмара тегів'
+recommended_articles: 'Також рекомендуємо'
+search: 'Пошук'
+edit: 'Редагувати'
+profile: 'Профіль'
+no_content_found: 'Нажаль, ми не змогли знайти підходящих матеріалів. Спробуйте <a href="/">почати з головної</a>.'
+powered_by: 'Працює на <a href="https://github.com/pytsite" target="_blank">PytSite</a>'
+external_links: 'Посилання на джерела'
+link: 'Посилання'

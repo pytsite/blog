@@ -1,57 +1,67 @@
 server:
-  name: blog.test.com
+  name: 'blog.test.com'
 
 db:
-  database: test_com
-  user: test
-  password: test
+  database: 'test_com'
+  user: 'test'
+  password: 'test'
 
 lang:
   languages:
-    - en
-    - ru
-    - uk
+    - 'en'
+    - 'ru'
+    - 'uk'
 
 app:
   autoload:
-    - pytsite.auth_ui
-    - pytsite.auth_log
-    - pytsite.content
-#    - pytsite.add_this
-#    - pytsite.disqus
+    - 'pytsite.auth_ui'
+    - 'pytsite.auth_log'
+    - 'pytsite.content'
+#    - 'pytsite.add_this'
+#    - 'pytsite.disqus'
+#    - 'pytsite.fb'
 
-  links:
-    facebook: https://facebook.com
-    twitter: https://twitter.com
+#  links:
+#    - 'https://facebook.com'
+#    - 'https://twitter.com'
+#    - 'https://plus.google.com'
+#    - 'https://tumblr.com'
+#    - 'https://livejournal.com'
+
+#  launch_year: '2015'
 
 routes:
   '/':
-    _name: app.ep.home
+    _name: 'app.ep.home'
 
   '/section/<string:term_alias>':
-    _name: app.article.index.section
-    _call: pytsite.content.ep.index
-    model: article
-    term_field: section
+    _name: 'app.article.index.section'
+    _call: 'pytsite.content.ep.index'
+    model: 'article'
+    term_field: 'section'
 
   '/tag/<string:term_alias>':
-    _name: app.article.index.tag
-    _call: pytsite.content.ep.index
-    model: article
-    term_field: tags
+    _name: 'app.article.index.tag'
+    _call: 'pytsite.content.ep.index'
+    model: 'article'
+    term_field: 'tags'
 
 content:
   sitemap:
     models:
-      - article
-      - page
+      - 'article'
+      - 'page'
   feed:
     models:
-      - article
+      - 'article'
 
 #add_this:
-#  pub_id:
+#  pub_id: ''
 
 #disqus:
-#  short_name:
-#  api_secret:
+#  short_name: ''
+#  api_secret: ''
+
+#fb:
+#  app_id: ''
+#  app_secret: ''
