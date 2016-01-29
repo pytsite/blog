@@ -34,7 +34,7 @@
             <div class="ext-links">
                 <span>{{ t('external_links') }}</span>:
                 {% for link in entity.ext_links %}
-                    <a target="_blank" href="{{ link }}">{{ t('link')|lower }}</a>
+                    <a target="_blank" href="{{ link }}">{{ t('link')|lower }}</a>&nbsp;
                 {% endfor %}
             </div>
         {% endif %}

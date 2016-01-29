@@ -20,14 +20,12 @@ app:
 #    - 'pytsite.add_this'
 #    - 'pytsite.disqus'
 #    - 'pytsite.fb'
-
 #  links:
 #    - 'https://facebook.com'
 #    - 'https://twitter.com'
 #    - 'https://plus.google.com'
 #    - 'https://tumblr.com'
 #    - 'https://livejournal.com'
-
 #  launch_year: '2015'
 
 routes:

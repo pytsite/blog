@@ -17,7 +17,7 @@ def home(args: dict, inp: dict) -> str:
     sections = content.get_sections()
     latest_by_section = {}
     for sec in sections:
-        latest_by_section[sec.alias] = _get_articles(exclude_ids)
+        latest_by_section[sec.alias] = _get_articles(exclude_ids, section=sec)
 
     args.update({
         'latest_articles': latest,
@@ -110,7 +110,7 @@ def _get_tpl_globals(exclude_ids: list=None):
     """Get global arguments to inject into templates.
     """
     return {
-        'sections': content.get_sections(),
+        'sections': list(content.get_sections()),
         'sidebar': _get_sidebar(exclude_ids),
         'search_widget': content.widget.Search('search-article', model='article', title=lang.t('search')),
     }

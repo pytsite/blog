@@ -1,5 +1,9 @@
 # PytSite Blog Changelog
 
+## 0.8 (2016-01-29)
+Update to support latest PytSite-0.50.3 release.
+
+
 ## 0.7 (2016-01-23)
 Update to support latest PytSite-0.49 release.
 
