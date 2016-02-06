@@ -1,5 +1,5 @@
 server:
-  name: 'blog.test.com'
+  name: 'test.com'
 
 db:
   database: 'test_com'
@@ -26,6 +26,7 @@ app:
 #    - 'https://plus.google.com'
 #    - 'https://tumblr.com'
 #    - 'https://livejournal.com'
+#    - 'info@test.com'
 #  launch_year: '2015'
 
 routes:

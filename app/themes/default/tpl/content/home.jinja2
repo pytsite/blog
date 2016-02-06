@@ -46,9 +46,7 @@
                 {% if loop.index0 < 3 %}
                     {% if latest_by_section[section.alias] %}
                         <div class="col-xs-B-12 col-xs-4">
-                            <h3>{{ section.title | e }}</h3>
-
-                            <div class="hr1"></div>
+                            <h3 class="section-title">{{ section.title | e }}</h3>
 
                             {% for article in latest_by_section[section.alias] %}
                                 <div class="art">
@@ -62,7 +60,6 @@
                                             <a href="{{ article.url }}">{{ article.title | e }}</a>
                                         </div>
                                     {% endif %}
-                                    <div class="hr2"></div>
                                 </div>
                             {% endfor %}
                         </div>

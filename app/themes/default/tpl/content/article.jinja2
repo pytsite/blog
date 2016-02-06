@@ -1,34 +1,37 @@
 {% extends reg_get('output.base_tpl') %}
 {% block content %}
-    <article class="content-entity" data-model="{{ entity.model }}" data-entity-id="{{ entity.id }}">
-        <h1>{{ entity.title | e }}</h1>
-        {% if entity.images %}
-            <div class="image">
-                {{ entity.images[0].get_responsive_html(entity.title) }}
-            </div>
-        {% endif %}
-        {% block meta %}
-            <div class="meta">
-                <span class="author">
-                    <i class="fa fa-user"></i>&nbsp;
-                    <a href="{{ ep_url('pytsite.content.ep.index', {'model': 'article', 'author': entity.author.nickname}) }}">{{ entity.author.full_name }}</a>
-                </span>
-                <span class="date"><i
-                        class="fa fa-calendar"></i>&nbsp;{{ entity.publish_time | date('pretty_date_time') }}</span>
-                <span class="views_count"><i class="fa fa-eye"></i>&nbsp;{{ entity.views_count }}</span>
-                <span class="comments_count"><i class="fa fa-comment"></i>&nbsp;{{ entity.comments_count }}</span>
-            </div>
-        {% endblock %}
+    <div class="content-entity" data-model="{{ entity.model }}" data-entity-id="{{ entity.id }}">
+        <article class="article">
+            <h1 class="title">{{ entity.title | e }}</h1>
 
-        {% block description %}
-            <p class="description">
-                {{ entity.description | e }}
-            </p>
-        {% endblock %}
+            {% if entity.images %}
+                <div class="image">
+                    {{ entity.images[0].get_responsive_html(entity.title) }}
+                </div>
+            {% endif %}
+            {% block meta %}
+                <div class="meta">
+                    <span class="author">
+                        <i class="fa fa-user"></i>&nbsp;
+                        <a href="{{ ep_url('pytsite.content.ep.index', {'model': 'article', 'author': entity.author.nickname}) }}">{{ entity.author.full_name }}</a>
+                    </span>
+                    <span class="date"><i
+                            class="fa fa-calendar"></i>&nbsp;{{ entity.publish_time | date('pretty_date_time') }}</span>
+                    <span class="views_count"><i class="fa fa-eye"></i>&nbsp;{{ entity.views_count }}</span>
+                    <span class="comments_count"><i class="fa fa-comment"></i>&nbsp;{{ entity.comments_count }}</span>
+                </div>
+            {% endblock %}
 
-        <div class="body">
-            {{ entity.body }}
-        </div>
+            {% block description %}
+                <p class="description">
+                    {{ entity.description | e }}
+                </p>
+            {% endblock %}
+
+            <div class="body">
+                {{ entity.body }}
+            </div>
+        </article>
 
         {% if entity.ext_links %}
             <div class="ext-links">
@@ -40,7 +43,7 @@
         {% endif %}
 
 
-        {% set current_user = get_current_user() %}
+        {% set current_user = auth_current_user() %}
         {% if current_user.has_permission('pytsite.odm_ui.modify.' ~ entity.model) or (current_user.has_permission('pytsite.odm_ui.modify_own.' ~ entity.model) and current_user.id == entity.author.id) %}
             <div class="row actions">
                 <div class="col-xs-12 text-right">
@@ -50,7 +53,7 @@
             </div>
         {% endif %}
 
-        <div class="row">
+        <div class="row public-actions">
             {% block tags %}
                 <div class="tags col-sm-6">
                     {{ entity_tags }}
@@ -67,8 +70,6 @@
         </div>
 
         {% if related %}
-            <div class="hr1"></div>
-
             <div class="row related">
                 <div class="col-xs-12">
                     <h3>{{ t('recommended_articles') }}</h3>
@@ -89,8 +90,6 @@
                     </div>
                 {% endfor %}
             </div>
-
-            <div class="hr2"></div>
         {% endif %}
 
         {% block comments %}
@@ -98,5 +97,5 @@
                 {{ comments_widget }}
             </div>
         {% endblock %}
-    </article>
+    </div>
 {% endblock %}

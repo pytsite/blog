@@ -21,15 +21,15 @@
                 {% endfor %}
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                {% set user = get_current_user() %}
+                {% set user = auth_current_user() %}
                 {% if user.is_anonymous %}
-                    {{ nav_link(ep_url('pytsite.auth.ep.login', {'driver': 'ulogin'}), t('pytsite.auth@login')) }}
+                    {{ nav_link(auth_login_url(), t('pytsite.auth@login')) }}
                 {% else %}
                     {% if user.has_permission('admin.use') %}
                         {{ nav_link(ep_url('pytsite.admin.ep.dashboard'), t('pytsite.admin@admin')) }}
                     {% endif %}
                     {{ nav_link(user.profile_view_url, t('profile')) }}
-                    {{ nav_link(get_logout_url(), t('pytsite.auth@logout')) }}
+                    {{ nav_link(auth_logout_url(), t('pytsite.auth@logout')) }}
                 {% endif %}
             </ul>
         </div>

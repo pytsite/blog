@@ -11,6 +11,9 @@
                     {% set icon = 'fa fa-google-plus' %}
                 {% elif 'tumblr.com' in link %}
                     {% set icon = 'fa fa-tumblr' %}
+                {% elif '@' in link %}
+                    {% set icon = 'fa fa-envelope' %}
+                    {% set link = 'mailto:' ~ link %}
                 {% endif %}
                 <li><a target="_blank" href="{{ link }}"><i class="{{ icon }}"></i></a></li>
             {% endfor %}

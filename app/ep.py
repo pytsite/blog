@@ -14,17 +14,15 @@ def home(args: dict, inp: dict) -> str:
 
     latest = _get_articles(exclude_ids)
 
-    sections = content.get_sections()
     latest_by_section = {}
-    for sec in sections:
+    for sec in content.get_sections():
         latest_by_section[sec.alias] = _get_articles(exclude_ids, section=sec)
 
     args.update({
         'latest_articles': latest,
         'latest_by_section': latest_by_section,
+        'sidebar': _get_sidebar(exclude_ids),
     })
-
-    args.update(_get_tpl_globals(exclude_ids))
 
     return tpl.render('content/home', args)
 
@@ -33,7 +31,9 @@ def article_index(args: dict, inp: dict) -> str:
     """Article index view.
     """
     exclude_ids = [e.id for e in args.get('entities')]
-    args.update(_get_tpl_globals(exclude_ids))
+    args.update({
+        'sidebar': _get_sidebar(exclude_ids),
+    })
 
     if 'author' in args and args['author']:
         args['author_widget'] = auth_ui.widget.Profile('user-profile', user=args['author'])
@@ -47,8 +47,6 @@ def article_view(args: dict, inp: dict) -> str:
     e = args['entity']
     exclude_ids = [e.id]
 
-    args.update(_get_tpl_globals(exclude_ids))
-
     comments_widget = ''
     if 'pytsite.disqus' in reg.get('app.autoload'):
         comments_widget = comments.get_widget('disqus')
@@ -60,6 +58,7 @@ def article_view(args: dict, inp: dict) -> str:
         'entity_tags': content.widget.EntityTagCloud('entity-tag-cloud', entity=args['entity']),
         'share_widget': add_this.widget.AddThis('add-this-share') if reg.get('add_this.pub_id') else '',
         'comments_widget': comments_widget,
+        'sidebar': _get_sidebar(exclude_ids),
     })
 
     return tpl.render('content/{}'.format(e.model), args)
@@ -104,13 +103,3 @@ def _get_articles(exclude_ids: list, count: int=5, section: content.model.Sectio
         exclude_ids.append(article.id)
 
     return r
-
-
-def _get_tpl_globals(exclude_ids: list=None):
-    """Get global arguments to inject into templates.
-    """
-    return {
-        'sections': list(content.get_sections()),
-        'sidebar': _get_sidebar(exclude_ids),
-        'search_widget': content.widget.Search('search-article', model='article', title=lang.t('search')),
-    }
