@@ -1,6 +1,6 @@
 """Application Init.
 """
-from pytsite import content, events, widget, lang
+from pytsite import content, events, widget, lang, assetman, browser
 from . import model
 
 # Register application models
@@ -14,3 +14,7 @@ events.listen('pytsite.tpl.render', lambda args: args.update({
     'language_nav': widget.select.LanguageNav('language-nav'),
     'search_widget': content.widget.Search('search-article', model='article', title=lang.t('search')),
 }))
+
+browser.include('bootstrap', True)
+assetman.add('css/common.css', True)
+assetman.add('js/common.js', True)

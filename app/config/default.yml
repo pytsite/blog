@@ -3,8 +3,9 @@ server:
 
 db:
   database: 'test_com'
-  user: 'test'
-  password: 'test'
+  ssl: false
+#  user: 'test'
+#  password: 'test'
 
 lang:
   languages:
@@ -17,7 +18,7 @@ app:
     - 'pytsite.auth_ui'
     - 'pytsite.auth_log'
     - 'pytsite.content'
-#    - 'pytsite.add_this'
+#    - 'pytsite.addthis'
 #    - 'pytsite.disqus'
 #    - 'pytsite.fb'
 #  links:
@@ -54,7 +55,7 @@ content:
     models:
       - 'article'
 
-#add_this:
+#addthis:
 #  pub_id: ''
 
 #disqus:

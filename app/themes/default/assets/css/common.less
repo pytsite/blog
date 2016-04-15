@@ -2,18 +2,139 @@
 @import url(http://fonts.googleapis.com/css?family=Ubuntu:400,700,300,400italic,300italic,700italic&subset=latin,cyrillic);
 @import 'colors.less';
 
-body {
+.application {
   background: @color2 url('../img/bg.png');
   color: @color5;
   font-family: 'Ubuntu', sans-serif;
   font-size: 16px;
-}
 
-a {
-  color: @color3;
-
-  &:hover {
+  a {
     color: @color3;
+
+    &:hover {
+      color: @color3;
+    }
+  }
+
+  .pagination {
+    text-align: center;
+    width: 100%;
+
+    & > li {
+      display: inline-block;
+      & > a {
+        border-color: @color3;
+        color: @color3;
+
+        &:hover, &:focus {
+          background-color: @color3;
+          color: @color1;
+          border-color: @color3;
+        }
+      }
+    }
+
+    & > .active {
+      a {
+        background: @color3;
+        color: @color1;
+        border-color: @color3;
+
+        &:hover, &:focus {
+          background-color: @color3;
+          color: @color1;
+          border-color: @color3;
+        }
+      }
+    }
+  }
+
+  .form-control {
+    &:focus {
+      box-shadow: none;
+      border-color: @color3;
+    }
+  }
+
+  .btn-default {
+    &:hover, &:focus, &:active {
+      color: @color3;
+      border-color: @color3;
+      background-color: @color1;
+    }
+  }
+
+  .navbar-default {
+    background-color: @color3;
+    border-radius: 0;
+    border: 0;
+    font-size: 14px;
+
+    .navbar-brand {
+      color: @color1;
+
+      &:hover {
+        color: @color1;
+      }
+    }
+
+    .navbar-toggle {
+      background-color: @color3;
+      color: @color1;
+
+      &:hover {
+        background-color: @color1;
+      }
+
+      .icon-bar {
+        background-color: @color1;
+
+        &:hover {
+          background-color: @color3;
+        }
+      }
+    }
+
+    .navbar-nav {
+      li {
+        a {
+          color: @color1;
+
+          &:hover {
+            background-color: @color1;
+            color: @color3;
+          }
+        }
+      }
+
+      .active {
+        a {
+          color: @color3;
+          background-color: @color1;
+
+          &:hover {
+            background-color: @color1;
+            color: @color3;
+          }
+        }
+      }
+
+      .open {
+        a, a:focus, a:hover {
+          background: @color1;
+        }
+      }
+      .dropdown-menu {
+        a {
+          color: @color3;
+
+          &:hover {
+            color: @color1;
+            background: @color3;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -60,127 +181,6 @@ a {
 .hvr-sweep-to-right:hover:before, .hvr-sweep-to-right:focus:before, .hvr-sweep-to-right:active:before {
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
-}
-
-.pagination {
-  text-align: center;
-  width: 100%;
-
-  & > li {
-    display: inline-block;
-    & > a {
-      border-color: @color3;
-      color: @color3;
-
-      &:hover, &:focus {
-        background-color: @color3;
-        color: @color1;
-        border-color: @color3;
-      }
-    }
-  }
-
-  & > .active {
-    a {
-      background: @color3;
-      color: @color1;
-      border-color: @color3;
-
-      &:hover, &:focus {
-        background-color: @color3;
-        color: @color1;
-        border-color: @color3;
-      }
-    }
-  }
-}
-
-.form-control {
-  &:focus {
-    box-shadow: none;
-    border-color: @color3;
-  }
-}
-
-.btn-default {
-  &:hover, &:focus, &:active {
-    color: @color3;
-    border-color: @color3;
-    background-color: @color1;
-  }
-}
-
-.navbar-default {
-  background-color: @color3;
-  border-radius: 0;
-  border: 0;
-  font-size: 14px;
-
-  .navbar-brand {
-    color: @color1;
-
-    &:hover {
-      color: @color1;
-    }
-  }
-
-  .navbar-toggle {
-    background-color: @color3;
-    color: @color1;
-
-    &:hover {
-      background-color: @color1;
-    }
-
-    .icon-bar {
-      background-color: @color1;
-
-      &:hover {
-        background-color: @color3;
-      }
-    }
-  }
-
-  .navbar-nav {
-    li {
-      a {
-        color: @color1;
-
-        &:hover {
-          background-color: @color1;
-          color: @color3;
-        }
-      }
-    }
-
-    .active {
-      a {
-        color: @color3;
-        background-color: @color1;
-
-        &:hover {
-          background-color: @color1;
-          color: @color3;
-        }
-      }
-    }
-
-    .open {
-      a, a:focus, a:hover {
-        background: @color1;
-      }
-    }
-    .dropdown-menu {
-      a {
-        color: @color3;
-
-        &:hover {
-          color: @color1;
-          background: @color3;
-        }
-      }
-    }
-  }
 }
 
 .auth-ui.profile-edit, #pytsite-auth-login {
@@ -546,7 +546,7 @@ a {
     min-height: 100%;
   }
 
-  body {
+  .application {
     margin-bottom: 50px;
   }
 

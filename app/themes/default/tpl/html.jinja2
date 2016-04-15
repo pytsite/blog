@@ -1,13 +1,10 @@
-{% do browser_include('bootstrap') %}
-{% do assetman_add('css/common.css') %}
-{% do assetman_add('js/common.js') %}
 <!DOCTYPE html>
 <html lang="{{ current_lang() }}">
 <head>
     {{ metatag_all() }}
     {{ assetman_css() }}
 </head>
-<body>
+<body class="application">
 
 {% include 'parts/header' %}
 

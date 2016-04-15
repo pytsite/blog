@@ -43,11 +43,10 @@
         {% endif %}
 
 
-        {% set current_user = auth_current_user() %}
-        {% if current_user.has_permission('pytsite.odm_ui.modify.' ~ entity.model) or (current_user.has_permission('pytsite.odm_ui.modify_own.' ~ entity.model) and current_user.id == entity.author.id) %}
+        {% if entity.ui_entity_modification_allowed() %}
             <div class="row actions">
                 <div class="col-xs-12 text-right">
-                    <a href="{{ ep_url('pytsite.odm_ui.ep.get_m_form', {'model': entity.model, 'id': entity.id|string, '__redirect': current_url()}) }}"
+                    <a href="{{ ep_url('pytsite.odm_ui.ep.m_form', {'model': entity.model, 'id': entity.id|string, '__redirect': current_url()}) }}"
                        class="btn btn-default">{{ t('edit') }}</a>
                 </div>
             </div>
@@ -61,7 +60,7 @@
             {% endblock %}
 
             {% block share %}
-                {% if reg_get('add_this.pub_id') %}
+                {% if share_widget %}
                     <div class="share col-sm-6">
                         {{ share_widget }}
                     </div>

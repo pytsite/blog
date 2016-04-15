@@ -1,6 +1,6 @@
 """Application Endpoints.
 """
-from pytsite import content, tpl, odm, lang, add_this, reg, auth_ui, comments
+from pytsite import content, tpl, odm, lang, addthis, reg, auth_ui, comments
 
 __author__ = 'Alexander Shepetko'
 __email__ = 'a@shepetko.com'
@@ -56,7 +56,7 @@ def article_view(args: dict, inp: dict) -> str:
     args.update({
         'related': _get_articles(exclude_ids, 3, e.section, 'views_count') if e.model == 'article' else [],
         'entity_tags': content.widget.EntityTagCloud('entity-tag-cloud', entity=args['entity']),
-        'share_widget': add_this.widget.AddThis('add-this-share') if reg.get('add_this.pub_id') else '',
+        'share_widget': addthis.widget.AddThis('add-this-share') if reg.get('addthis.pub_id') else '',
         'comments_widget': comments_widget,
         'sidebar': _get_sidebar(exclude_ids),
     })
