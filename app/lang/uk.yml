@@ -20,3 +20,5 @@ no_content_found: 'Нажаль, ми не змогли знайти підхо�
 powered_by: 'Працює на <a href="https://github.com/pytsite" target="_blank">PytSite</a>'
 external_links: 'Посилання на джерела'
 link: 'Посилання'
+sign_in: 'Увійти'
+sign_out: 'Вийти'

@@ -1,0 +1,12 @@
+<div id="page-footer">
+    <div class="navbar navbar-inverse">
+        <div class="container">
+            {{ language_nav }}
+
+            <p class="navbar-text navbar-right">
+                {% set current_year = '' | date('%Y') %}
+                <small>&copy; {{ current_year }} {{ t('app_name') }}</small>
+            </p>
+        </div>
+    </div>
+</div>

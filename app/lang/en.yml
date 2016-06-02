@@ -20,3 +20,5 @@ no_content_found: 'Unfortunately we cannot find suitable content. Try to start f
 powered_by: 'Powered by <a href="https://github.com/pytsite" target="_blank">PytSite</a>'
 external_links: 'Links to sources'
 link: 'Link'
+sign_in: 'Sign in'
+sign_out: 'Sign out'

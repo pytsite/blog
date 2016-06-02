@@ -18,33 +18,17 @@ app:
     - 'pytsite.auth_ui'
     - 'pytsite.auth_log'
     - 'pytsite.content'
+    - 'pytsite.ulogin'
 #    - 'pytsite.addthis'
 #    - 'pytsite.disqus'
-#    - 'pytsite.fb'
-#  links:
-#    - 'https://facebook.com'
-#    - 'https://twitter.com'
-#    - 'https://plus.google.com'
-#    - 'https://tumblr.com'
-#    - 'https://livejournal.com'
-#    - 'info@test.com'
-#  launch_year: '2015'
-
-routes:
-  '/':
-    _name: 'app.ep.home'
-
-  '/section/<string:term_alias>':
-    _name: 'app.article.index.section'
-    _call: 'pytsite.content.ep.index'
-    model: 'article'
-    term_field: 'section'
-
-  '/tag/<string:term_alias>':
-    _name: 'app.article.index.tag'
-    _call: 'pytsite.content.ep.index'
-    model: 'article'
-    term_field: 'tags'
+  links:
+    - 'https://facebook.com'
+    - 'https://twitter.com'
+    - 'https://plus.google.com'
+    - 'https://tumblr.com'
+    - 'https://livejournal.com'
+    - 'info@test.com'
+  launch_year: '2016'
 
 content:
   sitemap:
@@ -61,7 +45,3 @@ content:
 #disqus:
 #  short_name: ''
 #  api_secret: ''
-
-#fb:
-#  app_id: ''
-#  app_secret: ''

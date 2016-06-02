@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="{{ current_lang() }}">
+
+<head>
+    {{ metatag_all() }}
+    {{ assetman_css() }}
+</head>
+
+<body id="application">
+
+{% include 'parts/header' %}
+
+<div id="page">
+    {% include 'parts/messages' %}
+    {% block content %}{% endblock %}
+</div>
+
+{% include 'parts/footer' %}
+
+{{ assetman_js() }}
+{{ assetman_inline() }}
+
+</body>
+</html>

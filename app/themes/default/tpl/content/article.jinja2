@@ -43,7 +43,7 @@
         {% endif %}
 
 
-        {% if entity.ui_entity_modification_allowed() %}
+        {% if entity.ui_can_be_modified() %}
             <div class="row actions">
                 <div class="col-xs-12 text-right">
                     <a href="{{ ep_url('pytsite.odm_ui.ep.m_form', {'model': entity.model, 'id': entity.id|string, '__redirect': current_url()}) }}"

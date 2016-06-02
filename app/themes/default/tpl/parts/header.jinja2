@@ -23,13 +23,13 @@
             <ul class="nav navbar-nav navbar-right">
                 {% set user = auth_current_user() %}
                 {% if user.is_anonymous %}
-                    {{ nav_link(auth_login_url(), t('pytsite.auth@login')) }}
+                    {{ nav_link(auth_sign_in_url(), t('sign_in')) }}
                 {% else %}
                     {% if user.has_permission('admin.use') %}
                         {{ nav_link(ep_url('pytsite.admin.ep.dashboard'), t('pytsite.admin@admin')) }}
                     {% endif %}
-                    {{ nav_link(user.profile_view_url, t('profile')) }}
-                    {{ nav_link(auth_logout_url(), t('pytsite.auth@logout')) }}
+                    {{ nav_link(user.url, t('profile')) }}
+                    {{ nav_link(auth_sign_out_url(), t('sign_out')) }}
                 {% endif %}
             </ul>
         </div>
