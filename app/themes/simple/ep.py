@@ -1,6 +1,6 @@
 """Application Endpoints.
 """
-from pytsite import content, tpl, odm, lang, addthis, reg, auth_ui, comments
+from pytsite import content, tpl, addthis, reg, comments
 
 __author__ = 'Alexander Shepetko'
 __email__ = 'a@shepetko.com'
@@ -15,7 +15,7 @@ def home(args: dict, inp: dict) -> str:
     return tpl.render('content/home', args)
 
 
-def article_view(args: dict, inp: dict) -> str:
+def content_article_view(args: dict, inp: dict) -> str:
     """Article view.
     """
     e = args['entity']
@@ -35,7 +35,7 @@ def article_view(args: dict, inp: dict) -> str:
     return tpl.render('content/{}'.format(e.model), args)
 
 
-def page_view(args: dict, inp: dict) -> str:
+def content_page_view(args: dict, inp: dict) -> str:
     """Page view.
     """
-    return article_view(args, inp)
+    return content_article_view(args, inp)

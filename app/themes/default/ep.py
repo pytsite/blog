@@ -1,6 +1,6 @@
 """Application Endpoints.
 """
-from pytsite import content, tpl, odm, lang, addthis, reg, auth_ui, comments
+from pytsite import content, tpl, odm, lang, addthis, reg, comments, auth
 
 __author__ = 'Alexander Shepetko'
 __email__ = 'a@shepetko.com'
@@ -27,7 +27,7 @@ def home(args: dict, inp: dict) -> str:
     return tpl.render('content/home', args)
 
 
-def article_index(args: dict, inp: dict) -> str:
+def content_article_index(args: dict, inp: dict) -> str:
     """Article index view.
     """
     exclude_ids = [e.id for e in args.get('entities')]
@@ -36,12 +36,12 @@ def article_index(args: dict, inp: dict) -> str:
     })
 
     if 'author' in args and args['author']:
-        args['author_widget'] = auth_ui.widget.Profile('user-profile', user=args['author'])
+        args['author_widget'] = auth.widget.Profile('user-profile', user=args['author'])
 
     return tpl.render('content/index', args)
 
 
-def article_view(args: dict, inp: dict) -> str:
+def content_article_view(args: dict, inp: dict) -> str:
     """Article view.
     """
     e = args['entity']
@@ -58,10 +58,10 @@ def article_view(args: dict, inp: dict) -> str:
     return tpl.render('content/{}'.format(e.model), args)
 
 
-def page_view(args: dict, inp: dict) -> str:
+def content_page_view(args: dict, inp: dict) -> str:
     """Page view.
     """
-    return article_view(args, inp)
+    return content_article_view(args, inp)
 
 
 def _get_sidebar(exclude_ids: list) -> list:

@@ -15,10 +15,9 @@ lang:
 
 app:
   autoload:
-    - 'pytsite.auth_ui'
+    - 'pytsite.auth_ulogin'
     - 'pytsite.auth_log'
     - 'pytsite.content'
-    - 'pytsite.ulogin'
 #    - 'pytsite.addthis'
 #    - 'pytsite.disqus'
   links:

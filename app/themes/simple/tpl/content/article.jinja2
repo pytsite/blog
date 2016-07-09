@@ -47,10 +47,10 @@
                     {% endif %}
 
 
-                    {% if entity.ui_can_be_modified() %}
+                    {% if entity.check_perm('modify') %}
                         <div class="row actions">
                             <div class="col-xs-12 text-right">
-                                <a href="{{ ep_url('pytsite.odm_ui.ep.m_form', {'model': entity.model, 'id': entity.id|string, '__redirect': current_url()}) }}"
+                                <a href="{{ ep_url('pytsite.odm_ui@m_form', {'model': entity.model, 'id': entity.id|string, '__redirect': current_url()}) }}"
                                    class="btn btn-default">{{ t('edit') }}</a>
                             </div>
                         </div>

@@ -17,7 +17,7 @@
         <div class="collapse navbar-collapse" id="navbar-top-collapse">
             <ul class="nav navbar-nav">
                 {% for section in sections %}
-                    {{ nav_link(ep_url('app.article.index.section', {'term_alias': section.alias}), section.title) }}
+                    {{ nav_link(ep_url('app.article.index@section', {'term_alias': section.alias}), section.title) }}
                 {% endfor %}
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -25,8 +25,8 @@
                 {% if user.is_anonymous %}
                     {{ nav_link(auth_sign_in_url(), t('sign_in')) }}
                 {% else %}
-                    {% if user.has_permission('admin.use') %}
-                        {{ nav_link(ep_url('pytsite.admin.ep.dashboard'), t('pytsite.admin@admin')) }}
+                    {% if user.has_permission('pytsite.admin.use') %}
+                        {{ nav_link(ep_url('pytsite.admin@dashboard'), t('pytsite.admin@admin')) }}
                     {% endif %}
                     {{ nav_link(user.url, t('profile')) }}
                     {{ nav_link(auth_sign_out_url(), t('sign_out')) }}

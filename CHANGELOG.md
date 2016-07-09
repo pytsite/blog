@@ -1,5 +1,9 @@
 # PytSite Application Skeleton Changelog
 
+## 0.12 (2016-07-09)
+- Update to support latest PytSite-0.77.4 release.
+
+
 ## 0.11 (2016-06-02)
 - Update to support latest PytSite-0.70.1 release.
 - New theme: 'simple'.

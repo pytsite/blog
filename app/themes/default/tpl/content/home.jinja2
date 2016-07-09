@@ -16,7 +16,7 @@
                             <p class="hidden-xs description">{{ article.description | e }}</p>
                         </div>
 
-                        <a class="section hvr-sweep-to-right" href="{{ ep_url('app.article.index.section', {'term_alias': article.section.alias}) }}">{{ article.section.title | e }}</a>
+                        <a class="section hvr-sweep-to-right" href="{{ ep_url('app.article.index@section', {'term_alias': article.section.alias}) }}">{{ article.section.title | e }}</a>
                     </div>
                 </div>
                 <div class="clearfix"></div>
@@ -28,7 +28,7 @@
                                 <a class="image" href="{{ article.url }}">
                                     {{ article.images[0].get_responsive_html(article.title, aspect_ratio=1.5) }}
                                 </a>
-                                <a class="section hvr-sweep-to-right" href="{{ ep_url('app.article.index.section', {'term_alias': article.section.alias}) }}">{{ article.section.title | e }}</a>
+                                <a class="section hvr-sweep-to-right" href="{{ ep_url('app.article.index@section', {'term_alias': article.section.alias}) }}">{{ article.section.title | e }}</a>
 
                                 <p class="title"><a href="{{ article.url }}">{{ article.title | e }}</a></p>
                             </div>

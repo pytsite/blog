@@ -21,8 +21,8 @@
                     {% if user.is_anonymous %}
                         {{ nav_link(auth_sign_in_url(), t('sign_in')) }}
                     {% else %}
-                        {% if user.has_permission('admin.use') %}
-                            {{ nav_link(ep_url('pytsite.admin.ep.dashboard'), t('pytsite.admin@admin')) }}
+                        {% if user.has_permission('pytsite.admin.use') %}
+                            {{ nav_link(ep_url('pytsite.admin@dashboard'), t('pytsite.admin@admin')) }}
                         {% endif %}
                         {{ nav_link(auth_sign_out_url(), t('sign_out')) }}
                     {% endif %}
