@@ -16,11 +16,13 @@
 
         <div class="collapse navbar-collapse" id="navbar-top-collapse">
             <ul class="nav navbar-nav">
-                {% for section in sections %}
+                {% for section in get_content_sections() %}
                     {{ nav_link(ep_url('app.article.index@section', {'term_alias': section.alias}), section.title) }}
                 {% endfor %}
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                {{ language_nav[current_lang()] }}
+
                 {% set user = auth_current_user() %}
                 {% if user.is_anonymous %}
                     {{ nav_link(auth_sign_in_url(), t('sign_in')) }}

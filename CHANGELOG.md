@@ -1,5 +1,10 @@
 # PytSite Application Skeleton Changelog
 
+## 0.13 (2016-08-19)
+- Removed theme 'simple'.
+- Update to support latest PytSite 0.83 release. 
+
+
 ## 0.12 (2016-07-09)
 - Update to support latest PytSite-0.77.4 release.
 

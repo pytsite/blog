@@ -50,16 +50,39 @@
   }
 
   .form-control {
+    border-color: @color3;
+
     &:focus {
       box-shadow: none;
-      border-color: @color3;
+    }
+  }
+
+  .btn {
+    color: @color1;
+
+    &:hover {
+      color: @color1;
     }
   }
 
   .btn-default {
+    color: @color3;
+    border-color: @color3;
+    background-color: @color1;
+
+    &:hover, &:focus, &:active {
+      color: @color1;
+      background-color: @color3;
+    }
+  }
+
+  .btn-primary {
+    color: @color1;
+    border-color: @color3;
+    background-color: @color3;
+
     &:hover, &:focus, &:active {
       color: @color3;
-      border-color: @color3;
       background-color: @color1;
     }
   }
@@ -136,6 +159,10 @@
       }
     }
   }
+
+  .alert {
+    margin-top: 20px;
+  }
 }
 
 .hvr-sweep-to-right {
@@ -192,10 +219,6 @@
 
   > .row {
     background-color: @color1;
-  }
-
-  .alert {
-    margin-top: 20px;
   }
 }
 

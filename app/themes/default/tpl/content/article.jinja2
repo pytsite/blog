@@ -15,8 +15,7 @@
                         <i class="fa fa-user"></i>&nbsp;
                         <a href="{{ ep_url('pytsite.content@index', {'model': 'article', 'author': entity.author.nickname}) }}">{{ entity.author.full_name }}</a>
                     </span>
-                    <span class="date"><i
-                            class="fa fa-calendar"></i>&nbsp;{{ entity.publish_time | date('pretty_date_time') }}</span>
+                    <span class="date"><i class="fa fa-calendar"></i>&nbsp;{{ entity.publish_time | date('pretty_date_time') }}</span>
                     <span class="views_count"><i class="fa fa-eye"></i>&nbsp;{{ entity.views_count }}</span>
                     <span class="comments_count"><i class="fa fa-comment"></i>&nbsp;{{ entity.comments_count }}</span>
                 </div>
@@ -43,11 +42,10 @@
         {% endif %}
 
 
-        {% if entity.check_perm('modify') %}
+        {% if entity.check_permissions('modify') %}
             <div class="row actions">
                 <div class="col-xs-12 text-right">
-                    <a href="{{ ep_url('pytsite.odm_ui@m_form', {'model': entity.model, 'id': entity.id|string, '__redirect': current_url()}) }}"
-                       class="btn btn-default">{{ t('edit') }}</a>
+                    <a href="{{ entity.ui_m_form_url() }}" class="btn btn-default">{{ t('edit') }}</a>
                 </div>
             </div>
         {% endif %}

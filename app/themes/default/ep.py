@@ -1,6 +1,7 @@
-"""Application Endpoints.
+"""PytSite Application Default Theme Endpoints.
 """
-from pytsite import content, tpl, odm, lang, addthis, reg, comments, auth
+from datetime import datetime, timedelta
+from pytsite import content, tpl, odm, lang, addthis, settings, comments, auth
 
 __author__ = 'Alexander Shepetko'
 __email__ = 'a@shepetko.com'
@@ -8,7 +9,7 @@ __license__ = 'MIT'
 
 
 def home(args: dict, inp: dict) -> str:
-    """Home page.
+    """Home.
     """
     exclude_ids = []
 
@@ -28,7 +29,7 @@ def home(args: dict, inp: dict) -> str:
 
 
 def content_article_index(args: dict, inp: dict) -> str:
-    """Article index view.
+    """Index of articles.
     """
     exclude_ids = [e.id for e in args.get('entities')]
     args.update({
@@ -42,7 +43,7 @@ def content_article_index(args: dict, inp: dict) -> str:
 
 
 def content_article_view(args: dict, inp: dict) -> str:
-    """Article view.
+    """Single article view.
     """
     e = args['entity']
     exclude_ids = [e.id]
@@ -50,8 +51,8 @@ def content_article_view(args: dict, inp: dict) -> str:
     args.update({
         'related': _get_articles(exclude_ids, 3, e.section, 'views_count') if e.model == 'article' else [],
         'entity_tags': content.widget.EntityTagCloud('entity-tag-cloud', entity=args['entity']),
-        'share_widget': addthis.widget.AddThis('add-this-share') if reg.get('addthis.pub_id') else '',
-        'comments_widget': comments.get_widget('disqus') if reg.get('disqus.short_name') else '',
+        'share_widget': addthis.widget.AddThis('add-this-share') if settings.get('addthis.pub_id') else '',
+        'comments_widget': comments.get_widget().render(),
         'sidebar': _get_sidebar(exclude_ids),
     })
 
@@ -59,7 +60,7 @@ def content_article_view(args: dict, inp: dict) -> str:
 
 
 def content_page_view(args: dict, inp: dict) -> str:
-    """Page view.
+    """Single Page view.
     """
     return content_article_view(args, inp)
 
@@ -68,8 +69,8 @@ def _get_sidebar(exclude_ids: list) -> list:
     """Get sidebar content.
     """
     r = {
-        'popular': _get_articles(exclude_ids, 3, sort_field='views_count'),
-        'latest': _get_articles(exclude_ids, 3),
+        'popular': _get_articles(exclude_ids, 3, sort_field='views_count', days=7),
+        'latest': _get_articles(exclude_ids, 3, days=7),
         'tag_cloud': content.widget.TagCloud(
             uid='sidebar-tag-cloud',
             title=lang.t('tags_cloud'),
@@ -81,19 +82,27 @@ def _get_sidebar(exclude_ids: list) -> list:
     return r
 
 
-def _get_articles(exclude_ids: list, count: int=5, section: content.model.Section=None, sort_field='publish_time'):
+def _get_articles(exclude_ids: list, count: int = 5, section: content.model.Section = None,
+                  sort_field: str = 'publish_time', days: int = None):
     """Get articles.
 
     :rtype: list
     """
+    # Setup articles finder
     f = content.find('article').where('_id', 'nin', exclude_ids).sort([(sort_field, odm.I_DESC)])
 
+    # Filter by section
     if section:
         f.where('section', '=', section)
 
+    if days:
+        f.where('publish_time', '>=', datetime.now() - timedelta(days))
+
     r = []
     for article in f.get(count):
-        r.append(article)
+        # Show only articles which can be viewed by current user
+        if article.check_permissions('view'):
+            r.append(article)
         exclude_ids.append(article.id)
 
     return r

@@ -18,29 +18,6 @@ app:
     - 'pytsite.auth_ulogin'
     - 'pytsite.auth_log'
     - 'pytsite.content'
-#    - 'pytsite.addthis'
-#    - 'pytsite.disqus'
-  links:
-    - 'https://facebook.com'
-    - 'https://twitter.com'
-    - 'https://plus.google.com'
-    - 'https://tumblr.com'
-    - 'https://livejournal.com'
-    - 'info@test.com'
-  launch_year: '2016'
-
-content:
-  sitemap:
-    models:
-      - 'article'
-      - 'page'
-  feed:
-    models:
-      - 'article'
-
-#addthis:
-#  pub_id: ''
-
-#disqus:
-#  short_name: ''
-#  api_secret: ''
+    - 'pytsite.content_import'
+    - 'pytsite.comments_native'
+    - 'pytsite.addthis'
