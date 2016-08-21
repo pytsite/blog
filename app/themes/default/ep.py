@@ -15,11 +15,13 @@ def home(args: dict, inp: dict) -> str:
 
     latest = _get_articles(exclude_ids)
 
+    sections = list(content.get_sections())
     latest_by_section = {}
-    for sec in content.get_sections():
+    for sec in sections:
         latest_by_section[sec.alias] = _get_articles(exclude_ids, section=sec)
 
     args.update({
+        'sections': sections,
         'latest_articles': latest,
         'latest_by_section': latest_by_section,
         'sidebar': _get_sidebar(exclude_ids),
