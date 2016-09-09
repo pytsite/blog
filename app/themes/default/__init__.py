@@ -1,6 +1,6 @@
 """PytSite Application Default Theme.
 """
-from pytsite import content, widget, lang, assetman, browser, router, tpl, settings
+from pytsite import content, widget, lang, assetman, browser, router, tpl
 
 __author__ = 'Alexander Shepetko'
 __email__ = 'a@shepetko.com'

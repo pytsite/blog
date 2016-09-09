@@ -19,5 +19,5 @@ app:
     - 'pytsite.auth_log'
     - 'pytsite.content'
     - 'pytsite.content_import'
-    - 'pytsite.comments_native'
+    - 'pytsite.disqus'
     - 'pytsite.addthis'

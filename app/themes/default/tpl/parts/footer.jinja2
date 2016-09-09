@@ -23,7 +23,7 @@
         </ul>
 
         <p class="navbar-text navbar-right">
-            {% set launch_year = settings_get('app.launch_year') | string %}
+            {% set launch_year = settings_get('app.launch_year', '' | date('%Y')) | string %}
             {% set current_year = '' | date('%Y') %}
             {% if launch_year and launch_year != current_year %}
                 <small>&copy; {{ launch_year }}-{{ current_year }} {{ t('app_name') }}</small>

@@ -85,7 +85,7 @@ def _get_sidebar(exclude_ids: list) -> list:
 
 
 def _get_articles(exclude_ids: list, count: int = 5, section: content.model.Section = None,
-                  sort_field: str = 'publish_time', days: int = None):
+                  sort_field: str = 'publish_time', days: int = None, starred: bool = False):
     """Get articles.
 
     :rtype: list
@@ -97,8 +97,13 @@ def _get_articles(exclude_ids: list, count: int = 5, section: content.model.Sect
     if section:
         f.where('section', '=', section)
 
+    # Filter by publish time
     if days:
         f.where('publish_time', '>=', datetime.now() - timedelta(days))
+
+    # Filter by 'starred' flag
+    if starred:
+        f.where('starred', '=', True)
 
     r = []
     for article in f.get(count):

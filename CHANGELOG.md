@@ -1,5 +1,11 @@
 # PytSite Application Skeleton Changelog
 
+## 0.14 (2016-09-10)
+- Icons updated.
+- Disqus enabled by default.
+- Update to support latest PytSite 0.88.1 release.
+
+
 ## 0.13.1 (2016-08-21)
 - Error fix on the home page.
 
