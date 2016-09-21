@@ -1,4 +1,4 @@
-"""
+"""Application Settings Form.
 """
 from datetime import datetime
 from pytsite import widget, lang, validation, settings
@@ -26,7 +26,7 @@ class Form(settings.Form):
             label=lang.t('launch_year'),
             h_size='col-xs-12 col-sm-3 col-md-2 col-lg-1',
             required=True,
-            min=1984,
+            min=1991,
             max=current_year
         ))
 

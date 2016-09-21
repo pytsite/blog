@@ -1,23 +1,15 @@
-server:
-  name: 'test.com'
+server_name: test.com
 
 db:
-  database: 'test_com'
-  ssl: false
+  database: test_com
 #  user: 'test'
 #  password: 'test'
 
-lang:
-  languages:
-    - 'en'
-    - 'ru'
-    - 'uk'
+languages: [en, ru, uk]
 
-app:
-  autoload:
-    - 'pytsite.auth_ulogin'
-    - 'pytsite.auth_log'
-    - 'pytsite.content'
-    - 'pytsite.content_import'
-    - 'pytsite.disqus'
-    - 'pytsite.addthis'
+autoload:
+  - pytsite.auth_ulogin
+  - pytsite.auth_log
+  - pytsite.content
+  - pytsite.disqus
+  - pytsite.addthis
