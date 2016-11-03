@@ -11,5 +11,5 @@ autoload:
   - pytsite.auth_ulogin
   - pytsite.auth_log
   - pytsite.content
+  - pytsite.google_analytics
   - pytsite.disqus
-  - pytsite.addthis

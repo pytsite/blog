@@ -1,7 +1,7 @@
 """PytSite Application Default Theme Endpoints.
 """
 from datetime import datetime, timedelta
-from pytsite import content, tpl, odm, lang, addthis, settings, comments, auth
+from pytsite import content, tpl, odm, lang, settings, comments, auth, plugman
 
 __author__ = 'Alexander Shepetko'
 __email__ = 'a@shepetko.com'
@@ -53,10 +53,15 @@ def content_article_view(args: dict, inp: dict) -> str:
     args.update({
         'related': _get_articles(exclude_ids, 3, e.section, 'views_count') if e.model == 'article' else [],
         'entity_tags': content.widget.EntityTagCloud('entity-tag-cloud', entity=args['entity']),
-        'share_widget': addthis.widget.AddThis('add-this-share') if settings.get('addthis.pub_id') else '',
         'comments_widget': comments.get_widget().render(),
         'sidebar': _get_sidebar(exclude_ids),
     })
+
+    if plugman.is_installed('addthis'):
+        from app.plugins import addthis
+        args.update({
+            'share_widget': addthis.widget.AddThis('add-this-share') if settings.get('addthis.pub_id') else '',
+        })
 
     return tpl.render('content/{}'.format(e.model), args)
 

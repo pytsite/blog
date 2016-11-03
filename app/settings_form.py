@@ -19,16 +19,5 @@ class Form(settings.Form):
             rules=validation.rule.Url(),
         ))
 
-        current_year = datetime.now().year
-        self.add_widget(widget.input.Integer(
-            uid='setting_launch_year',
-            weight=20,
-            label=lang.t('launch_year'),
-            h_size='col-xs-12 col-sm-3 col-md-2 col-lg-1',
-            required=True,
-            min=1991,
-            max=current_year
-        ))
-
         # It is important to call super method AFTER
         super()._setup_widgets()

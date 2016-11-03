@@ -6,7 +6,9 @@
 /lib/
 /static/
 /app/config/*@*
-/app/storage/
 /app/log/
+/app/plugins/
+/app/plugins-dev/
+/app/storage/
 /app/tmp/
 /test.py

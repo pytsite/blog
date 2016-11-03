@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="{{ current_lang() }}">
 <head>
-    {{ metatag_all() }}
-    {{ assetman_css() }}
+    {{ metatags() }}
+    {{ css_links() }}
 </head>
 <body class="application">
 
-{% include 'parts/header' %}
+{% include 'parts/header.jinja2' %}
 
 <div id="page" class="container">
-    {% include 'parts/messages' %}
+    {% include 'parts/messages.jinja2' %}
     <div class="row">
         <div id="content" class="{% if sidebar %}col-md-8{% else %}col-xs-12{% endif %}">
             <div class="inner">
@@ -20,7 +20,7 @@
             <aside id="sidebar" class="col col-md-4">
                 <div class="inner">
                     {% block sidebar %}
-                        {% include 'parts/sidebar' %}
+                        {% include 'parts/sidebar.jinja2' %}
                     {% endblock %}
                 </div>
             </aside>
@@ -28,10 +28,10 @@
     </div>
 </div>
 
-{% include 'parts/footer' %}
+{% include 'parts/footer.jinja2' %}
 
-{{ assetman_js() }}
-{{ assetman_inline() }}
+{{ js_links() }}
+{{ inline_js() }}
 
 </body>
 </html>
