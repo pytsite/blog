@@ -1,5 +1,9 @@
 # PytSite Application Skeleton Changelog
 
+## 0.17 (2016-11-09)
+- Update to support latest PytSite 0.94 release.
+
+
 ## 0.16 (2016-11-03)
 - Update to support latest PytSite 0.93.1 release.
 

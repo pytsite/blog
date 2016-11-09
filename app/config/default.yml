@@ -2,14 +2,11 @@ server_name: test.com
 
 db:
   database: test_com
-#  user: 'test'
-#  password: 'test'
+#  user:  test
+#  password: test
+#  ssl: true
 
 languages: [en, ru, uk]
 
 autoload:
   - pytsite.auth_ulogin
-  - pytsite.auth_log
-  - pytsite.content
-  - pytsite.google_analytics
-  - pytsite.disqus

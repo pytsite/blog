@@ -1,6 +1,5 @@
 """Application Settings Form.
 """
-from datetime import datetime
 from pytsite import widget, lang, validation, settings
 
 __author__ = 'Alexander Shepetko'
