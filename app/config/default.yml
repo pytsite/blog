@@ -7,6 +7,3 @@ db:
 #  ssl: true
 
 languages: [en, ru, uk]
-
-autoload:
-  - pytsite.auth_ulogin

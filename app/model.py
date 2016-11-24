@@ -1,4 +1,4 @@
-"""Application Models.
+"""PytSite Blog Models.
 """
 from pytsite import content
 

@@ -1,4 +1,8 @@
-# PytSite Application Skeleton Changelog
+# PytSite Blog Application Changelog
+
+## 0.18 (2016-11-24)
+- Update to support latest PytSite 0.95.1 release.
+
 
 ## 0.17 (2016-11-09)
 - Update to support latest PytSite 0.94 release.

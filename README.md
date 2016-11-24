@@ -1,1 +1,1 @@
-# PytSite Application Skeleton
+# PytSite Blog Application
