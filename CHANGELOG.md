@@ -1,15 +1,19 @@
 # PytSite Blog Application Changelog
 
+## 0.19 (2016-12-25)
+Update to support latest PytSite 0.98.23 release and latest **blog-default** theme version.
+
+
 ## 0.18 (2016-11-24)
-- Update to support latest PytSite 0.95.1 release.
+Update to support latest PytSite 0.95.1 release.
 
 
 ## 0.17 (2016-11-09)
-- Update to support latest PytSite 0.94 release.
+Update to support latest PytSite 0.94 release.
 
 
 ## 0.16 (2016-11-03)
-- Update to support latest PytSite 0.93.1 release.
+Update to support latest PytSite 0.93.1 release.
 
 
 ## 0.15 (2016-09-21)
@@ -23,16 +27,16 @@
 
 
 ## 0.13.1 (2016-08-21)
-- Fixed error on the home page.
+Fixed error on the home page.
 
 
 ## 0.13 (2016-08-19)
 - Theme 'simple' removed.
-- Update to support latest PytSite 0.83 release. 
+Update to support latest PytSite 0.83 release. 
 
 
 ## 0.12 (2016-07-09)
-- Update to support latest PytSite-0.77.4 release.
+Update to support latest PytSite-0.77.4 release.
 
 
 ## 0.11 (2016-06-02)

@@ -1,2 +1,1 @@
-from pytsite import wsgi
-application = wsgi.application
+from pytsite.wsgi import application
