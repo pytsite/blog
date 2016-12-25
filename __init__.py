@@ -1,7 +1,12 @@
 """PytSite Blog Init.
 """
-from pytsite import content, permissions, settings, router, tpl
+from pytsite import content, permissions, settings, router, tpl, lang
 from . import model, settings_form
+
+
+def _app_name(language: str, args: dict):
+    return settings.get('app.app_name_' + language, 'The Blog')
+
 
 # ODM models
 content.register_model('article', model.Article, 'app@articles')
@@ -24,6 +29,9 @@ router.add_rule('/tag/<string:term_alias>', 'article_index_by_tag', 'pytsite.con
     'model': 'article',
     'term_field': 'tags',
 })
+
+# Lang globals
+lang.register_global('app_name', _app_name)
 
 # Tpl globals
 tpl.register_global('content_sections', lambda: list(content.get_sections()))

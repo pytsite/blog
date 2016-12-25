@@ -1,5 +1,9 @@
 # PytSite Blog Application Changelog
 
+## 0.20 (2016-12-25)
+Update to support latest PytSite 0.98.24 release.
+
+
 ## 0.19 (2016-12-25)
 Update to support latest PytSite 0.98.23 release and latest **blog-default** theme version.
 

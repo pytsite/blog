@@ -1,9 +1,0 @@
-server_name: test.com
-
-db:
-  database: test_com
-#  user:  test
-#  password: test
-#  ssl: true
-
-languages: [en, ru, uk]

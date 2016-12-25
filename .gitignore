@@ -1,14 +1,1 @@
-*.pyc
-*.pyo
-/.idea
-/app/config/*@*
-/app/log
-/app/storage
-/app/tmp
-/env
-/lib
-/plugins
-/plugins-dev
-/static
-/themes
-/test.py
+__pycache__

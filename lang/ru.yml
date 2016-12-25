@@ -1,13 +1,10 @@
-app_name: 'Блог'
-
 lang_title_ru: 'Русский'
 lang_title_uk: 'Українська'
 lang_title_en: 'English'
-
 application: 'Приложение'
+application_name: 'Имя приложения (:lang)'
 manage_app_settings: 'Управление настройками приложения'
 links: 'Ссылки'
 add_link: 'Добавить ссылку'
 articles: 'Статьи'
 pages: 'Страницы'
-search: 'Поиск'
