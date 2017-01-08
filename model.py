@@ -1,19 +1,19 @@
 """PytSite Blog Models.
 """
-from pytsite import content
+from plugins import article, page
 
 __author__ = 'Alexander Shepetko'
 __email__ = 'a@shepetko.com'
 __license__ = 'MIT'
 
 
-class Article(content.model.Article):
+class Article(article.model.Article):
     """Article Content Model.
     """
     pass
 
 
-class Page(content.model.Page):
+class Page(page.model.Page):
     """Page Content Model.
     """
     pass

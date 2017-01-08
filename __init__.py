@@ -1,6 +1,7 @@
 """PytSite Blog Init.
 """
-from pytsite import content, permissions, settings, router, tpl, lang
+from pytsite import permissions, settings, router, tpl, lang
+from plugins import content, section
 from . import model, settings_form
 
 
@@ -19,13 +20,13 @@ permissions.define_permission('app.settings.manage', 'app@manage_app_settings', 
 settings.define('app', settings_form.Form, __name__ + '@application', 'fa fa-cube', 'app.settings.manage')
 
 # Index by section route
-router.add_rule('/section/<string:term_alias>', 'article_index_by_section', 'pytsite.content@index', {
+router.add_rule('/section/<string:term_alias>', 'article_index_by_section', 'content@index', {
     'model': 'article',
     'term_field': 'section',
 })
 
 # Index by tag route
-router.add_rule('/tag/<string:term_alias>', 'article_index_by_tag', 'pytsite.content@index', {
+router.add_rule('/tag/<string:term_alias>', 'article_index_by_tag', 'content@index', {
     'model': 'article',
     'term_field': 'tags',
 })
@@ -34,5 +35,5 @@ router.add_rule('/tag/<string:term_alias>', 'article_index_by_tag', 'pytsite.con
 lang.register_global('app_name', _app_name)
 
 # Tpl globals
-tpl.register_global('content_sections', lambda: list(content.get_sections()))
+tpl.register_global('content_sections', lambda: list(section.get()))
 tpl.register_global('content_pages', lambda: list(content.find('page').get()))
