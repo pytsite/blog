@@ -1,6 +1,6 @@
 """PytSite Blog Settings Form.
 """
-from pytsite import widget, lang, validation, settings, router
+from pytsite import widget, lang, validation, settings
 
 __author__ = 'Alexander Shepetko'
 __email__ = 'a@shepetko.com'
@@ -10,10 +10,10 @@ __license__ = 'MIT'
 class Form(settings.Form):
     """PytSite Blog Settings Form.
     """
-
-    def _setup_widgets(self):
+    def _on_setup_widgets(self):
         """Hook.
         """
+        # Application names
         w = 10
         for l in lang.langs():
             self.add_widget(widget.input.Text(
@@ -23,11 +23,12 @@ class Form(settings.Form):
                 default=lang.t('app_name'),
             ))
 
-            w += 10
+            w += 1
 
+        # Links
         self.add_widget(widget.input.StringList(
             uid='setting_links',
-            weight=w,
+            weight=20,
             label=lang.t('app@links'),
             add_btn_label=lang.t('app@add_link'),
             unique=True,
@@ -35,4 +36,4 @@ class Form(settings.Form):
         ))
 
         # It is important to call super method AFTER
-        super()._setup_widgets()
+        super()._on_setup_widgets()
