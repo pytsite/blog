@@ -5,10 +5,6 @@ from plugins import content, section
 from . import model, settings_form
 
 
-def _app_name(language: str, args: dict):
-    return settings.get('app.app_name_' + language, 'The Blog')
-
-
 # ODM models
 content.register_model('article', model.Article, 'app@articles')
 content.register_model('page', model.Page, 'app@pages')
@@ -32,7 +28,7 @@ router.add_rule('/tag/<string:term_alias>', 'article_index_by_tag', 'content@ind
 })
 
 # Lang globals
-lang.register_global('app_name', _app_name)
+lang.register_global('app@app_name', lambda language, args: settings.get('app.app_name_' + language, 'The Blog'))
 
 # Tpl globals
 tpl.register_global('content_sections', lambda: list(section.get()))
