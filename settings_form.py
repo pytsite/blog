@@ -15,12 +15,12 @@ class Form(settings.Form):
         """
         # Application names
         w = 10
-        for l in lang.langs():
+        for l in lang.langs(include_neutral=False):
             self.add_widget(widget.input.Text(
                 uid='setting_app_name_' + l,
                 weight=w,
                 label=lang.t('app@application_name', {'lang': lang.lang_title(l)}),
-                default=lang.t('app_name'),
+                default=lang.t('app@app_name'),
             ))
 
             w += 1
