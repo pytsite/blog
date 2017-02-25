@@ -1,6 +1,4 @@
-lang_title_ru: 'Русский'
-lang_title_uk: 'Українська'
-lang_title_en: 'English'
+app_name: 'The Blog'
 application: 'Application'
 application_name: 'Application name (:lang)'
 manage_app_settings: 'Manage application settings'

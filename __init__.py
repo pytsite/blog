@@ -4,7 +4,6 @@ from pytsite import permissions, settings, router, tpl, lang
 from plugins import content, section
 from . import model, settings_form
 
-
 # ODM models
 content.register_model('article', model.Article, 'app@articles')
 content.register_model('page', model.Page, 'app@pages')
@@ -16,15 +15,20 @@ permissions.define_permission('app.settings.manage', 'app@manage_app_settings', 
 settings.define('app', settings_form.Form, __name__ + '@application', 'fa fa-cube', 'app.settings.manage')
 
 # Index by section route
-router.add_rule('/section/<string:term_alias>', 'article_index_by_section', 'content@index', {
+router.add_rule('/section/<term_alias>', 'content@index', 'article_index_by_section', {
     'model': 'article',
     'term_field': 'section',
 })
 
 # Index by tag route
-router.add_rule('/tag/<string:term_alias>', 'article_index_by_tag', 'content@index', {
+router.add_rule('/tag/<term_alias>', 'content@index', 'article_index_by_tag', {
     'model': 'article',
     'term_field': 'tags',
+})
+
+# Index by author route
+router.add_rule('/author/<author>', 'content@index', 'article_index_by_author', {
+    'model': 'article',
 })
 
 # Lang globals

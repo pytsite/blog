@@ -1,6 +1,10 @@
 # PytSite Blog Application Changelog
 
 
+## 0.24 (2017-02-25)
+Update to support latest PytSite 0.98.70 release.
+
+
 ## 0.23.1 (2017-02-07)
 Fixed settings form.
 
