@@ -15,19 +15,19 @@ permissions.define_permission('app.settings.manage', 'app@manage_app_settings', 
 settings.define('app', settings_form.Form, __name__ + '@application', 'fa fa-cube', 'app.settings.manage')
 
 # Index by section route
-router.add_rule('/section/<term_alias>', 'content@index', 'article_index_by_section', {
+router.handle('/section/<term_alias>', 'content@index', 'article_index_by_section', {
     'model': 'article',
     'term_field': 'section',
 })
 
 # Index by tag route
-router.add_rule('/tag/<term_alias>', 'content@index', 'article_index_by_tag', {
+router.handle('/tag/<term_alias>', 'content@index', 'article_index_by_tag', {
     'model': 'article',
     'term_field': 'tags',
 })
 
 # Index by author route
-router.add_rule('/author/<author>', 'content@index', 'article_index_by_author', {
+router.handle('/author/<author>', 'content@index', 'article_index_by_author', {
     'model': 'article',
 })
 
