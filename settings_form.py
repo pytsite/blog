@@ -1,4 +1,4 @@
-"""PytSite Blog Settings Form.
+"""PytSite Blog Settings Form
 """
 from pytsite import widget, lang, validation, settings
 

@@ -1,4 +1,3 @@
-app_name: 'The Blog'
 application: 'Application'
 application_name: 'Application name (:lang)'
 manage_app_settings: 'Manage application settings'

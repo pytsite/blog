@@ -1,4 +1,4 @@
-"""PytSite Blog Models.
+"""PytSite Blog Models
 """
 from plugins import article, page
 
@@ -8,12 +8,12 @@ __license__ = 'MIT'
 
 
 class Article(article.model.Article):
-    """Article Content Model.
+    """Article Content Model
     """
     pass
 
 
 class Page(page.model.Page):
-    """Page Content Model.
+    """Page Content Model
     """
     pass

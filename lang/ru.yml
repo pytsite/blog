@@ -1,4 +1,3 @@
-app_name: 'Блог'
 application: 'Приложение'
 application_name: 'Имя приложения (:lang)'
 manage_app_settings: 'Управление настройками приложения'

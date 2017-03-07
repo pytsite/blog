@@ -1,4 +1,8 @@
-# PytSite Blog Application Changelog
+# PytSite Blog Changelog
+
+## 0.26 (2017-03-06)
+Update to support latest PytSite 0.98.80 release.
+
 
 ## 0.25 (2017-03-03)
 Update to support latest PytSite 0.98.79 release.

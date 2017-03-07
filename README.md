@@ -1,1 +1,1 @@
-# PytSite Blog Application
+# PytSite Blog
