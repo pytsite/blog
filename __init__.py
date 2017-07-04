@@ -1,19 +1,14 @@
-"""PytSite Blog Init.
+"""PytSite Blog
 """
-from pytsite import permissions, settings, lang, plugman
-from . import model, settings_form
+from pytsite import plugman
 
-# Permissions
-permissions.define_permission('app.settings.manage', 'app@manage_app_settings', 'app')
-
-# Settings
-settings.define('app', settings_form.Form, __name__ + '@application', 'fa fa-cube', 'app.settings.manage')
-
-# Lang globals
-lang.register_global('app@app_name', lambda language, args: settings.get('app.app_name_' + language, 'The Blog'))
+__author__ = 'Alexander Shepetko'
+__email__ = 'a@shepetko.com'
+__license__ = 'MIT'
 
 if plugman.is_installed('content'):
     from plugins import content
+    from . import model
 
     if plugman.is_installed('article'):
         # Register 'article' model

@@ -1,0 +1,6 @@
+{
+  "name": "blog",
+  "version": "1.0",
+  "description": "PytSite Blog",
+  "requires": "pytsite>=1"
+}

@@ -1,7 +1,2 @@
-application: 'Приложение'
-application_name: 'Имя приложения (:lang)'
-manage_app_settings: 'Управление настройками приложения'
-links: 'Ссылки'
-add_link: 'Добавить ссылку'
 articles: 'Статьи'
 pages: 'Страницы'
