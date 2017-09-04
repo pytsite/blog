@@ -1,7 +1,8 @@
 # PytSite Blog
 
-Blog application for [PytSite Framework](https://pytsite.xyz).
+Blog application based on [PytSite Framework](https://pytsite.xyz).
 
-* URL: [https://github.com/pytsite/blog](https://github.com/pytsite/blog)
-* Author: [Alexander Shepetko](https://shepetko.com)
+* [Installation HowTo](https://github.com/pytsite-apps/blog-install)
 * [Changelog](CHANGELOG.md)
+* URL: [https://github.com/pytsite-apps/blog](https://github.com/pytsite-apps/blog)
+* Author: [Alexander Shepetko](https://shepetko.com)

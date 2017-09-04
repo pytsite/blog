@@ -1,6 +1,23 @@
 {
   "name": "blog",
-  "version": "1.0",
-  "description": "PytSite Blog",
-  "requires": "pytsite>=1"
+  "version": "1.1",
+  "url": "https://github.com/pytsite-apps/blog",
+  "description": {
+    "en": "Blog",
+    "ru": "Блог",
+    "uk": "Блог"
+  },
+  "author": {
+    "name": "Alexander Shepetko",
+    "email": "a@shepetko.com",
+    "url": "https://shepetko.com"
+  },
+  "requires": {
+    "packages": [],
+    "plugins": [
+      "article",
+      "page",
+      "contact_form"
+    ]
+  }
 }
