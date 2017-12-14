@@ -1,10 +1,10 @@
 """PytSite Blog
 """
-from pytsite import plugman
-
 __author__ = 'Alexander Shepetko'
 __email__ = 'a@shepetko.com'
 __license__ = 'MIT'
+
+from pytsite import plugman
 
 if plugman.is_installed('content'):
     from plugins import auth, content
