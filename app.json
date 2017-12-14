@@ -1,6 +1,6 @@
 {
   "name": "blog",
-  "version": "1.1",
+  "version": "2.0",
   "url": "https://github.com/pytsite-apps/blog",
   "description": {
     "en": "Blog",
@@ -15,9 +15,14 @@
   "requires": {
     "packages": [],
     "plugins": [
+      "admin",
       "article",
+      "auth_password",
+      "auth_ui_google",
+      "cache_redis",
+      "contact_form",
       "page",
-      "contact_form"
+      "theming"
     ]
   }
 }

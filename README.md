@@ -1,4 +1,4 @@
-# PytSite Blog
+# PytSite Blog Application
 
 Blog application based on [PytSite Framework](https://pytsite.xyz).
 
