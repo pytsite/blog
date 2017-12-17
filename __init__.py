@@ -7,8 +7,7 @@ __email__ = 'a@shepetko.com'
 __license__ = 'MIT'
 
 if plugman.is_installed('content'):
-    from pytsite import auth
-    from plugins import content
+    from plugins import auth, content
     from . import model
 
     if plugman.is_installed('article'):

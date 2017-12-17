@@ -17,7 +17,8 @@
     "plugins": [
       "article",
       "page",
-      "contact_form"
+      "contact_form",
+      "theming"
     ]
   }
 }
