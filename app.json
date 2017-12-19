@@ -17,8 +17,8 @@
     "plugins": [
       "admin",
       "article",
-      "auth_password",
       "auth_ui_google",
+      "auth_ui_password",
       "cache_redis",
       "contact_form",
       "page",
