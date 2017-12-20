@@ -2,7 +2,7 @@
 
 
 ## 2.0 (2017-11-24)
-Update to support latest PytSite 6.0 release.
+Update to support latest PytSite 7.2.4 release.
 
 
 ## 1.1 (2017-09-04)
