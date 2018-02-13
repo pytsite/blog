@@ -1,6 +1,6 @@
 {
   "name": "blog",
-  "version": "2.0",
+  "version": "2.1.1",
   "url": "https://github.com/pytsite-apps/blog",
   "description": {
     "en": "Blog",
@@ -13,7 +13,7 @@
     "url": "https://shepetko.com"
   },
   "requires": {
-    "packages": [],
+    "pytsite": ">=7.10",
     "plugins": [
       "admin",
       "admin_theme_lte",
@@ -24,6 +24,7 @@
       "auth_ui_password",
       "cache_redis",
       "contact_form",
+      "mail_settings",
       "page",
       "theming"
     ]

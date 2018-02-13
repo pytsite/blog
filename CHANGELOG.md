@@ -1,6 +1,11 @@
 # PytSite Blog Changelog
 
 
+## 2.1.1 (2018-02-13)
+
+`app.json` fixed.
+
+
 ## 2.1 (2018-02-13)
 
 Update to support PytSite-7.10.
