@@ -16,6 +16,7 @@
     "packages": [],
     "plugins": [
       "admin",
+      "admin_theme_lte",
       "article",
       "auth_settings",
       "auth_storage_odm_ui",
