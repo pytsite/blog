@@ -1,6 +1,11 @@
 # PytSite Blog Changelog
 
 
+## 2.1.2 (2018-02-21)
+
+Light refactoring.
+
+
 ## 2.1.1 (2018-02-13)
 
 `app.json` fixed.

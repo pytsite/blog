@@ -1,6 +1,6 @@
 {
   "name": "blog",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "url": "https://github.com/pytsite-apps/blog",
   "description": {
     "en": "Blog",
@@ -20,7 +20,6 @@
       "article",
       "auth_settings",
       "auth_storage_odm_ui",
-      "auth_ui_google",
       "auth_ui_password",
       "cache_redis",
       "contact_form",
