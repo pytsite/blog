@@ -15,7 +15,7 @@ def app_load():
 
     # Ensure that anonymous users can view articles and pages
     for model in content.get_models():
-        for r in auth.get_roles():
+        for r in auth.find_roles():
             if r.name in ('admin', 'dev'):
                 continue
             r.permissions = list(r.permissions) + ['odm_auth@view.{}'.format(model)]

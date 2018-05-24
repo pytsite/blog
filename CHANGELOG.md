@@ -1,6 +1,11 @@
 # PytSite Blog Changelog
 
 
+## 2.2 (2018-05-24)
+
+Support of `auth-3.3`.
+
+
 ## 2.1.3 (2018-02-21)
 
 `app.json` fixed.
